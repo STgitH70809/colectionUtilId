@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
-public class TestCollectionUtil {
+public class CollectionUtilTest {
     @Test
     public void getOrEmpty_nullInput_emptyList(){
         assertTrue(CollectionUtil.getOrEmpty(null).isEmpty());
