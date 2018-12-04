@@ -34,9 +34,8 @@ public class CollectionUtilTest {
 
     @Test
     public void nullSafeStream_listWithSomeNullValue_listWithoutNullValue(){
-        List<String> ls = new ArrayList<String>(List.of("a","b"));
-        ls.add(null);
-        ls.add("c");
+        String stl[] = new String[]{"a","b",null,"c"};
+        List<String> ls = Arrays.asList(stl);
         List<String> exc = List.of("a","b","c");
         assertEquals(exc,CollectionUtil.nullSafeStream(ls).collect(Collectors.toList()));
     }
@@ -48,8 +47,8 @@ public class CollectionUtilTest {
 
     @Test
     public void nullSafeStream_listContainOnlyNullValue_emptyList(){
-        List<String> ls = new ArrayList<String>();
-        ls.add(null);
+        String stl[] = new String[]{null};
+        List<String> ls = Arrays.asList(stl);
         assertTrue(CollectionUtil.nullSafeStream(ls).collect(Collectors.toList()).isEmpty());
     }
 
