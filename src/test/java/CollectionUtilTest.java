@@ -30,7 +30,6 @@ public class CollectionUtilTest {
     public void getFirst_emptyList_notPresentOptionalObject(){
         List<String> ls = List.of();
         assertFalse(CollectionUtil.getFirst(ls).isPresent());
-        // if list is empty return not present Optional object
     }
 
     @Test
@@ -55,9 +54,15 @@ public class CollectionUtilTest {
     }
 
     @Test
-    public void getRandom_notEmptyStringList_notNullValue(){
+    public void getRandom_notEmptyStringList_randomValueInList(){
         Collection<String> ls = List.of("good","morning");
-        assertTrue(CollectionUtil.getRandom(ls).isPresent());
+        assertTrue(ls.contains(CollectionUtil.getRandom(ls).get()));
+    }
+
+    @Test
+    public void getRandom_oneObjectList_firstListItem(){
+        Collection<String> ls = List.of("good");
+        assertEquals("good",CollectionUtil.getRandom(ls).get());
     }
 
     @Test
